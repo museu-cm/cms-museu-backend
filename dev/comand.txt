@@ -1,0 +1,62 @@
+yarn global add @nest/cli
+nest new file-store-api --strict
+
+yarn add @nestjs/config
+yarn add -D prisma
+yarn add @prisma/client
+
+yarn prisma init
+
+yarn add class-validator class-transformer
+
+yarn add -D install @types/multer
+
+yarn add uuid
+yarn add -D @types/uuid
+
+yarn add @nestjs/passport passport passport-local
+
+yarn add @nestjs/jwt passport-jwt
+
+yarn add -D @types/passport-jwt 
+yarn add -D @types/passport-local
+
+yarn add bcrypt
+yarn add -D @types/bcrypt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+yarn global add @nest/cli
+nest new file-store-api --strict
+
+yarn add -D @types/multer
+
+yarn add -D prisma
+yarn add @prisma/client
+
+npx prisma init --datasource-provider SQLite
+
+npx prisma migrate dev
+
+npx prisma generate
+
+npx prisma studio
+
+
+https://www.youtube.com/watch?v=zbT4Shiqlxs
