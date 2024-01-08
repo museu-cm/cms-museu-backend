@@ -1,25 +1,18 @@
-# start:
-# 	yarn prisma db push
-# 	make back-start
+setup:
+	make build-database
+	make build-backend
 
-# back-start:
-# 	docker-compose -f ./dev.docker-compose.yml up gestor-2.0-backend
-
-db-start:
-	docker-compose -f ./dev.docker-compose.yml up -d gestor-2.0-database
-
-database:
-	docker-compose -f ./dev.docker-compose.yml stop gestor-2.0-database
-	docker-compose -f ./dev.docker-compose.yml rm -f gestor-2.0-database
-	docker-compose -f ./dev.docker-compose.yml up -d --build gestor-2.0-database
-	docker-compose -f ./dev.docker-compose.yml start gestor-2.0-database
-
-# backend:
-# 	make push
-# 	docker-compose -f ./dev.docker-compose.yml stop gestor-2.0-backend
-# 	docker-compose -f ./dev.docker-compose.yml rm -f gestor-2.0-backend
-# 	docker-compose -f ./dev.docker-compose.yml up --build gestor-2.0-backend
-# 	docker-compose -f ./dev.docker-compose.yml start -d gestor-2.0-backend
-
-push:
+build-backend:
+	docker-compose -f ./dev.docker-compose.yml up -d cms-museu-database
 	yarn prisma db push
+	docker-compose -f ./dev.docker-compose.yml up --build cms-museu-backend
+
+build-database:
+	docker-compose -f ./dev.docker-compose.yml up -d --build cms-museu-database
+	yarn prisma db push
+	yarn prisma db seed
+
+start:
+	docker-compose -f ./dev.docker-compose.yml up -d cms-museu-database
+	yarn prisma db push
+	docker-compose -f ./dev.docker-compose.yml up cms-museu-backend

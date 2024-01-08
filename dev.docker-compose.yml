@@ -3,14 +3,15 @@ version: '3.7'
 services:
   ######################################################################
 
-  # docker-compose -f ./dev.docker-compose.yml stop gestor-2.0-backend
-  # docker-compose -f ./dev.docker-compose.yml rm -f gestor-2.0-backend
-  # docker-compose -f ./dev.docker-compose.yml up --build gestor-2.0-backend
-  # docker-compose -f ./dev.docker-compose.yml start gestor-2.0-backend
-  # docker-compose -f ./dev.docker-compose.yml logs -f --tail="5000" gestor-2.0-backend
+  # docker-compose -f ./dev.docker-compose.yml stop cms-museu-backend
+  # docker-compose -f ./dev.docker-compose.yml rm -f cms-museu-backend
+  # docker-compose -f ./dev.docker-compose.yml up --build cms-museu-backend
+  # docker-compose -f ./dev.docker-compose.yml start cms-museu-backend
+  # docker-compose -f ./dev.docker-compose.yml logs -f --tail="5000" cms-museu-backend
 
-  gestor-2.0-backend:
-    container_name: gestor-2.0-backend
+  cms-museu-backend:
+    image: cms-museu-backend-image
+    container_name: cms-museu-backend
     build:
       context: .
       target: development
@@ -22,24 +23,24 @@ services:
       - 8080:8080
     command: npm run start:dev
     environment:
-      - DATABASE_URL=mysql://root:root@gestor-2.0-database:3306/gestor-2.0?useTimezone=true&serverTimezone=UTC&connection_limit=15&socket_timeout=5
+      - DATABASE_URL=mysql://root:root@cms-museu-database:3306/cms-museu-db?useTimezone=true&serverTimezone=UTC&connection_limit=15&socket_timeout=5
       - NODE_ENV=development
 
   ######################################################################
 
-  # docker-compose -f ./dev.docker-compose.yml stop gestor-2.0-database
-  # docker-compose -f ./dev.docker-compose.yml rm -f gestor-2.0-database
-  # docker-compose -f ./dev.docker-compose.yml up --build gestor-2.0-database
-  # docker-compose -f ./dev.docker-compose.yml start -d gestor-2.0-database
-  # docker-compose -f ./dev.docker-compose.yml logs -f --tail="5000" gestor-2.0-database
+  # docker-compose -f ./dev.docker-compose.yml stop cms-museu-database
+  # docker-compose -f ./dev.docker-compose.yml rm -f cms-museu-database
+  # docker-compose -f ./dev.docker-compose.yml up --build cms-museu-database
+  # docker-compose -f ./dev.docker-compose.yml start -d cms-museu-database
+  # docker-compose -f ./dev.docker-compose.yml logs -f --tail="5000" cms-museu-database
 
-  gestor-2.0-database:
+  cms-museu-database:
     restart: unless-stopped
     build:
       context: .
       dockerfile: ./dev/database.dockerfile
-    image: gestor-2.0-mysql-database
-    container_name: gestor-2.0-database
+    image: cms-museu-database-image
+    container_name: cms-museu-database
     environment:
       - ENV_PORT=3307
       - ENV_MYSQL_ALLOW_EMPTY_PASSWORD=yes

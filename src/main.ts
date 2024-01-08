@@ -7,6 +7,9 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const publicPath = join(__dirname, '../../', 'front-build');
 
+  const port = 8080
+  console.log(`[Nest] Server port: ${port}`)
+
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.enableCors({
     "origin": "*",
@@ -22,6 +25,6 @@ async function bootstrap() {
   }));
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
   app.useStaticAssets(publicPath);
-  await app.listen(4001);
+  await app.listen(port);
 }
 bootstrap();
