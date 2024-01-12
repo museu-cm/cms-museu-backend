@@ -1,4 +1,4 @@
-import { CompanyTable, PermissionTable, PrismaClient, Role, UserTable } from '@prisma/client'
+import { User, Role, Situation, PrismaClient } from '@prisma/client'
 import * as bcrypt from 'bcrypt';
 
 const prisma = new PrismaClient();
@@ -6,41 +6,17 @@ const prisma = new PrismaClient();
 const createDefaultUsers = async (salt: string) => {
   const users = [
     {
-      name: 'admin',
+      name: 'Administrador',
+      username: 'admin',
       email: 'admin@admin.com',
       password: await bcrypt.hash('adminpassword', salt),
-      isAdmin: false
+      role: Role.ADMIN,
+      situation: Situation.ACTIVE
     },
   ];
 
-  await prisma.userTable.createMany({
+  await prisma.user.createMany({
     data: users
-  });
-}
-
-const createDefaultCompanies = async () => {
-  const companies = [
-    {
-      name: "Cooabiel Cooperativa"
-    }
-  ];
-
-  await prisma.companyTable.createMany({
-    data: companies
-  });
-}
-
-const createDefaultPermissions = async () => {
-  const permissions = [
-    {
-      userId: 1,
-      companyId: 1,
-      role: Role.ADMIN
-    },
-  ]
-
-  await prisma.permissionTable.createMany({
-    data: permissions
   })
 }
 
@@ -48,8 +24,6 @@ async function seed() {
   if (process.env.SALT) {
     const salt = process.env.SALT;
     await createDefaultUsers(salt);
-    await createDefaultCompanies();
-    await createDefaultPermissions();
   } else {
     throw new Error("SALT env not found");
   }

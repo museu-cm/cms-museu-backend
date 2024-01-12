@@ -15,7 +15,7 @@ model User {
   password String @db.VarChar(256)
   email    String @unique @db.VarChar(256)
 
-  role      Role
+  role      Role      @default(BASIC)
   situation Situation @default(ACTIVE)
 
   // deleted   Boolean   @default(false)
