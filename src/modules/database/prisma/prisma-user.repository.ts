@@ -4,71 +4,53 @@ import { UsersRepository } from "src/repositories/users.repository";
 import { CreateUserDto } from "src/modules/users/dto/create-user.dto";
 import { UpdateUserDto } from "src/modules/users/dto/update-user.dto";
 import { PrismaService } from "./prisma.service";
-import { Permission } from "src/entities/permission.entity";
 
 @Injectable()
 export class PrismaUsersRepository implements UsersRepository {
 
   constructor(private prismaService: PrismaService) {}
 
-  async findByPk(id: number): Promise<User | null> {
-    const user = await this.prismaService.userTable.findFirst({
-      where: { id },
-      include: { permissions: true }
+  async findById(id: number): Promise<User | null> {
+    const user = await this.prismaService.user.findFirst({
+      where: { id }
     });
-    return user ? new User({
-      ...user,
-      permissions: user.permissions.map(p => new Permission(p))
-    }) : null;
+    return user ? new User(user) : null;
   }
 
   async findByEmail(email: string): Promise<User | null> {
-    const user = await this.prismaService.userTable.findFirst({
+    const user = await this.prismaService.user.findFirst({
       where: { email },
-      include: { permissions: true }
     });
 
-    return user ? new User({
-      ...user,
-      permissions: user.permissions.map(p => new Permission(p))
-    }) : null;
+    return user ? new User(user) : null;
   }
 
   async update(id: number, data: UpdateUserDto): Promise<User> {
-    var updatedUser = await this.prismaService.userTable.update({
+    var updatedUser = await this.prismaService.user.update({
       where: { id },
-      include: { permissions: true },
       data: data
     })
 
-    return new User({
-      ...updatedUser,
-      permissions: updatedUser.permissions.map( p => new Permission(p))
-    });
+    return new User(updatedUser);
   }
 
   async create(data: CreateUserDto): Promise<User> {
-    const createdUser = await this.prismaService.userTable.create({
-      data: data,
-      include: { permissions: true }
+    const createdUser = await this.prismaService.user.create({
+      data: {
+        name: data.name,
+        username: data.name,
+        password: data.password,
+        email: data.email,
+        role: data.role ?? "BASIC",
+        situation: data.situation
+      },
     })
 
-    return new User({
-      ...createdUser,
-      permissions: createdUser.permissions.map( p => new Permission(p))
-    })
+    return new User(createdUser)
   }
 
   async findAll(): Promise<User[]> {
-    const prismaUsers = await this.prismaService.userTable.findMany({
-      include: { permissions: true }
-    });
-
-    const users = prismaUsers.map(prismaUser => new User({
-      ...prismaUser,
-      permissions: prismaUser.permissions.map( p => new Permission(p))
-    }));
-
-    return users;
+    const users = await this.prismaService.user.findMany();
+    return users.map(user => new User(user));
   }
 }

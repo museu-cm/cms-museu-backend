@@ -1,6 +1,5 @@
 import { Controller, HttpCode, Post, Req, UseGuards } from '@nestjs/common';
 import { Request } from 'express';
-import { CompanyRepository } from 'src/repositories/company.repository';
 import { AuthService } from './auth.service';
 import { AuthPayload } from './dtos/auth-payload.dto';
 import { LoginResponseDto } from './dtos/login-response.dto';
@@ -11,7 +10,6 @@ import { LocalAuthGuard } from './guards/local-auth.guard';
 export class AuthController {
   constructor(
     private readonly authService: AuthService,
-    private readonly companyRepository: CompanyRepository
   ) {}
 
   @UseGuards(LocalAuthGuard)
@@ -19,8 +17,7 @@ export class AuthController {
   async login(@Req() request: Request): Promise<LoginResponseDto> {
     const transformedPayload: AuthPayload = request.user as AuthPayload;
     const accessToken = this.authService.generateJwtToken(transformedPayload);
-    const companies = await this.companyRepository.findByUserId(transformedPayload.id);
-    return new LoginResponseDto({ accessToken, companies });
+    return new LoginResponseDto({ accessToken, userId: transformedPayload.id});
   }
 
   @UseGuards(JwtAuthGuard)

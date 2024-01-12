@@ -19,37 +19,40 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
-  @HasRole(Role.ADMIN, Role.CREATE, Role.USERS_CREATE)
+  @HasRole(Role.ADMIN)
   async create(@Body() createUserDto: CreateUserDto): Promise<User> {
     return await this.usersService.create(createUserDto);
   }
 
   @Get()
-  @HasRole(Role.ADMIN, Role.LIST, Role.USERS_LIST)
-  async findAll(
+  @HasRole(Role.ADMIN)
+  async findAll(): Promise<User[]> {
+    return await this.usersService.findAll();
+  }
+
+  @Get()
+  @HasRole(Role.ADMIN)
+  async findAllPaginated(
     @Query(PageQueryPipe) query: PageQuery, 
   ): Promise<Page<User>> {
-    console.log('Users FIND ALL: ', query.page)
-
     var users = await this.usersService.findAll();
-
     return new Page(users, 100);
   }
 
   @Get(':id')
-  @HasRole(Role.ADMIN, Role.LIST, Role.USERS_LIST)
+  @HasRole(Role.ADMIN)
   async findOne(@Param('id', IsId) id: number): Promise<User> {
     return this.usersService.findOne(+id);
   }
 
   @Patch(':id')
-  @HasRole(Role.ADMIN, Role.UPDATE, Role.USERS_UPDATE)
+  @HasRole(Role.ADMIN)
   async update(@Param('id', IsId) id: number, @Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update(id, updateUserDto);
   }
 
   @Delete(':id')
-  @HasRole(Role.ADMIN, Role.DELETE, Role.DELETE)
+  @HasRole(Role.ADMIN)
   remove(@Param('id', IsId) id: number) {
     return this.usersService.remove(id);
   }

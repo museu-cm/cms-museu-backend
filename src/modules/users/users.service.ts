@@ -20,7 +20,7 @@ export class UsersService {
   }
 
   async findOne(id: number) {
-    const user: User | null = await this.usersRepository.findByPk(id);
+    const user: User | null = await this.usersRepository.findById(id);
 
     if(!user) throw new NotFoundException();
 
@@ -29,7 +29,7 @@ export class UsersService {
 
   async update(id: number, updateUserDto: UpdateUserDto): Promise<User> {
 
-    const user: User | null = await this.usersRepository.findByPk(id);
+    const user: User | null = await this.usersRepository.findById(id);
 
     if(!user) throw new NotFoundException();
 
