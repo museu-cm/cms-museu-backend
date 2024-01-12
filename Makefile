@@ -16,3 +16,6 @@ start:
 	docker-compose -f ./dev.docker-compose.yml up -d cms-museu-database
 	yarn prisma db push
 	docker-compose -f ./dev.docker-compose.yml up cms-museu-backend
+
+stop:
+	docker-compose -f ./dev.docker-compose.yml stop cms-museu-backend cms-museu-database

@@ -34,5 +34,6 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# Using yarn as default dev and deploy
 package-lock.json
-# .env
+.env
