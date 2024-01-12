@@ -7,58 +7,35 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model UserTable {
-  id         Int       @id @default(autoincrement()) @db.UnsignedInt
-  name       String    @db.VarChar(256)
-  email      String    @unique @db.VarChar(256)
-  password   String    @unique @db.VarChar(256)
-  disabled   Boolean   @default(false)
-  last_login DateTime? @map("last_login") @db.DateTime(0)
-  isAdmin    Boolean   @default(false)
-  createdAt  DateTime  @default(now()) @db.DateTime(0)
-  updatedAt  DateTime? @updatedAt @db.DateTime(0)
+model User {
+  id Int @id @default(autoincrement()) @db.UnsignedInt
 
-  permissions PermissionTable[]
+  name     String @db.VarChar(256)
+  username String @db.VarChar(56)
+  password String @db.VarChar(256)
+  email    String @unique @db.VarChar(256)
+
+  role      Role
+  situation Situation @default(ACTIVE)
+
+  // deleted   Boolean   @default(false)
+  // lastLogin DateTime? @map("last_login") @db.DateTime(0)
+  // createdAt DateTime  @default(now()) @map("created_at") @db.DateTime(0)
+  // updatedAt DateTime? @updatedAt @map("updated_at") @db.DateTime(0)
 
   @@map("users")
 }
 
-model CompanyTable {
-  id        Int       @id @default(autoincrement()) @db.UnsignedInt
-  name      String    @db.VarChar(128)
-  createdAt DateTime  @default(now()) @db.DateTime(0)
-  updatedAt DateTime? @updatedAt  @db.DateTime(0)
-
-  permissions PermissionTable[]
-
-  @@map("companies")
-}
-
-model PermissionTable {
-  id        Int       @id @default(autoincrement()) @db.UnsignedInt
-  role      Role
-  userId    Int       @map("user_id") @db.UnsignedInt
-  companyId Int       @map("company_id") @db.UnsignedInt
-  createdAt DateTime  @default(now()) @db.DateTime(0)
-
-  user    UserTable    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  company CompanyTable @relation(fields: [companyId], references: [id], onDelete: Cascade)
-
-  @@map("permissions")
-}
-
 enum Role {
   ADMIN
-
-  LIST
-  CREATE
-  UPDATE
-  DELETE
-
-  USERS_LIST
-  USERS_CREATE
-  USERS_UPDATE
-  USERS_DELETE
+  BASIC
 
   @@map("roles")
+}
+
+enum Situation {
+  ACTIVE
+  INACTIVE
+
+  @@map("situations")
 }
