@@ -1,4 +1,4 @@
-<h1 align="center">Backend Content Management System</br>Museu-CM</h1>
+<h1 align="center">Backend CMS</br>Museu Municipal Deolindo Mendes Pereira</h1>
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
@@ -9,23 +9,39 @@
   </a>
 </p>
 
+# Project setup
 
-## Dev Setup
+### With docker
 
 ```bash
-$ yarn install
-$ make database
-$ yarn prisma migrate reset
+# Fist setup or restore
+$ make setup
+
+# Just run
+$ make start
 ```
 
-## Inicialização
+### Without docker
 
 ```bash
-# development
-$ make db-start
-$ yarn run start
+#-> start your MySQL database
+#-> exec dev/init-database.sql (on first setup or restore only)
+#-> set database env on .env
 
-# watch mode
-$ make db-start
-$ yarn run start:dev
+$ yarn start:dev
+```
+
+```bash
+# API endpoint
+localhost:8080
+
+```
+
+### Dev Login
+ ```[POST]  {host}:8080/auth/login```
+```json
+{
+  "email": "admin@admin.com",
+  "password": "adminpassword"
+}
 ```
