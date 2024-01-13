@@ -1,20 +1,35 @@
 {
     "client": "Thunder Client",
     "collectionName": "cms-museu-cm",
-    "dateExported": "2024-01-08T23:19:58.518Z",
+    "dateExported": "2024-01-13T18:32:30.495Z",
     "version": "1.1",
-    "folders": [],
+    "folders": [
+        {
+            "_id": "0e19cd4a-42ae-4b13-b3c8-c8adcb82e5db",
+            "name": "user",
+            "containerId": "",
+            "created": "2024-01-13T18:30:08.539Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "3fc255b4-2bba-414c-aa3f-9d366c744829",
+            "name": "auth",
+            "containerId": "",
+            "created": "2024-01-13T18:30:08.540Z",
+            "sortNum": 20000
+        }
+    ],
     "requests": [
         {
-            "_id": "0d787032-800d-4386-a05c-9ee0cd1a40b5",
-            "colId": "b6a148a4-3a9a-4e7a-b770-f409a70acc04",
-            "containerId": "",
+            "_id": "56214dff-f5b9-43f2-87d4-7491349259ca",
+            "colId": "83cfae9a-8250-413b-b9a1-935d3216d904",
+            "containerId": "3fc255b4-2bba-414c-aa3f-9d366c744829",
             "name": "login",
-            "url": "http://localhost:8080/auth/login",
+            "url": "localhost:8080/auth/login",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-01-05T01:37:35.777Z",
-            "modified": "2024-01-08T20:28:22.043Z",
+            "created": "2024-01-13T18:30:08.539Z",
+            "modified": "2024-01-13T18:32:13.882Z",
             "headers": [],
             "params": [],
             "body": {
@@ -25,20 +40,80 @@
             "tests": []
         },
         {
-            "_id": "28efcadf-b062-4a36-ba1b-60194ad59d81",
-            "colId": "b6a148a4-3a9a-4e7a-b770-f409a70acc04",
-            "containerId": "",
+            "_id": "7223114e-e1dc-43a8-9493-085f9723bb52",
+            "colId": "83cfae9a-8250-413b-b9a1-935d3216d904",
+            "containerId": "0e19cd4a-42ae-4b13-b3c8-c8adcb82e5db",
+            "name": "get-one",
+            "url": "localhost:8080/users/2",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-01-13T18:30:08.543Z",
+            "modified": "2024-01-13T18:30:58.639Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "fd794ac8-759d-4eca-ba2a-0d8a142caae0",
+            "colId": "83cfae9a-8250-413b-b9a1-935d3216d904",
+            "containerId": "0e19cd4a-42ae-4b13-b3c8-c8adcb82e5db",
             "name": "list",
-            "url": "http://localhost:8080/users/",
+            "url": "localhost:8080/users",
             "method": "GET",
             "sortNum": 20000,
-            "created": "2024-01-05T01:59:05.127Z",
-            "modified": "2024-01-08T23:17:37.695Z",
+            "created": "2024-01-13T18:30:08.540Z",
+            "modified": "2024-01-13T18:30:08.540Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkIjoxLCJpYXQiOjE3MDQ0MTk4NjgsImV4cCI6MTcwNDU5MjY2OH0.quRicf1MAwz50Jzaeo_nQ_Drs0-laP4nlURZPqhA2BM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkIjozLCJpYXQiOjE3MDUxNTk0NzgsImV4cCI6MTcwNTMzMjI3OH0.Uc257mCI8cE7QZf0GMYVPnhfyQH6CCUtScf1IJ6BcXM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "c02c26f4-0b30-4540-b9bf-4886eab86d4a",
+            "colId": "83cfae9a-8250-413b-b9a1-935d3216d904",
+            "containerId": "0e19cd4a-42ae-4b13-b3c8-c8adcb82e5db",
+            "name": "create",
+            "url": "localhost:8080/users",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-01-13T18:30:08.541Z",
+            "modified": "2024-01-13T18:30:42.556Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Andrew Sena\",\n  \"username\": \"andrew\",\n  \"email\": \"andrew@gmail.com\",\n  \"password\": \"andrewpass\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkIjoxLCJpYXQiOjE3MDUxNzA2MTksImV4cCI6MTcwNTM0MzQxOX0.SNu8V4tSILLTkL27y3q0mb3BbfLRefvhuARFvxMmUGA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "5380c103-438d-408e-8186-0363ae4b5941",
+            "colId": "83cfae9a-8250-413b-b9a1-935d3216d904",
+            "containerId": "0e19cd4a-42ae-4b13-b3c8-c8adcb82e5db",
+            "name": "update",
+            "url": "localhost:8080/users/2",
+            "method": "PATCH",
+            "sortNum": 40000,
+            "created": "2024-01-13T18:30:08.542Z",
+            "modified": "2024-01-13T18:32:09.523Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"andrew20@gmail.com\",\n  \"password\": \"andrew20password\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkIjozLCJpYXQiOjE3MDUxNjAyNjEsImV4cCI6MTcwNTMzMzA2MX0.LmqxDiZzXBqT-74PSbC-F0Zwelvvrw5ncYqi9ZWEuoo"
             },
             "tests": []
         }
