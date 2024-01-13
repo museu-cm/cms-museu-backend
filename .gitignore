@@ -37,3 +37,4 @@ lerna-debug.log*
 # Using yarn as default dev and deploy
 package-lock.json
 .env
+.server

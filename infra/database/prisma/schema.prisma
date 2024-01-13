@@ -11,7 +11,7 @@ model User {
   id Int @id @default(autoincrement()) @db.UnsignedInt
 
   name     String @db.VarChar(256)
-  username String @db.VarChar(56)
+  username String @unique @db.VarChar(56)
   password String @db.VarChar(256)
   email    String @unique @db.VarChar(256)
 
