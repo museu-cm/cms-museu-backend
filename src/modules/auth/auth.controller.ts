@@ -23,8 +23,6 @@ export class AuthController {
   @UseGuards(JwtAuthGuard)
   @Post('verify-token')
   @HttpCode(200)
-  jwt() {
-    console.log("JWT");
-  }
+  jwt() {}
 }
 

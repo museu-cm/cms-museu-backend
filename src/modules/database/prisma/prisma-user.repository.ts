@@ -25,6 +25,14 @@ export class PrismaUsersRepository implements UsersRepository {
     return user ? new User(user) : null;
   }
 
+  async findByUsername(username: string): Promise<User | null> {
+    const user = await this.prismaService.user.findFirst({
+      where: { username },
+    });
+
+    return user ? new User(user) : null;
+  }
+
   async update(id: number, data: UpdateUserDto): Promise<User> {
     var updatedUser = await this.prismaService.user.update({
       where: { id },
@@ -38,7 +46,7 @@ export class PrismaUsersRepository implements UsersRepository {
     const createdUser = await this.prismaService.user.create({
       data: {
         name: data.name,
-        username: data.name,
+        username: data.username,
         password: data.password,
         email: data.email,
         role: data.role ?? "BASIC",

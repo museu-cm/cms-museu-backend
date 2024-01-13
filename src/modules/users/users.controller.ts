@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Query, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query, UseGuards, Put } from '@nestjs/common';
 import { Role } from '@prisma/client';
 import { HasRole } from 'src/common/decorators/has-role.decorator';
 import { PageQuery } from 'src/common/http/page-query.type';
@@ -13,47 +13,49 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { UsersService } from './users.service';
 
 @Controller('users')
-@UseGuards(RolesGuard)
-@UseGuards(JwtAuthGuard)
+
+// @UseGuards(RolesGuard)
+// @UseGuards(JwtAuthGuard)
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Post()
-  @HasRole(Role.ADMIN)
-  async create(@Body() createUserDto: CreateUserDto): Promise<User> {
-    return await this.usersService.create(createUserDto);
+  @Get(':id')
+  @HasRole()
+  async findOne(@Param('id', IsId) id: number): Promise<User> {
+    return await this.usersService.findOne(+id);
   }
 
   @Get()
-  @HasRole(Role.ADMIN)
   async findAll(): Promise<User[]> {
     return await this.usersService.findAll();
   }
 
-  @Get()
+  @Post()
   @HasRole(Role.ADMIN)
+  @UseGuards(JwtAuthGuard)
+  async create(@Body() createUserDto: CreateUserDto): Promise<User> {
+    return await this.usersService.create(createUserDto);
+  }
+
+  @Patch(':id')
+  @HasRole(Role.ADMIN)
+  @UseGuards(JwtAuthGuard)
+  async update(@Param('id', IsId) id: number, @Body() updateUserDto: UpdateUserDto): Promise<User> {
+    return await this.usersService.update(id, updateUserDto);
+  }
+
+  @Delete(':id')
+  @HasRole(Role.ADMIN)
+  @UseGuards(JwtAuthGuard)
+  remove(@Param('id', IsId) id: number) {
+    return this.usersService.remove(id);
+  }
+
+  @Get()
   async findAllPaginated(
     @Query(PageQueryPipe) query: PageQuery, 
   ): Promise<Page<User>> {
     var users = await this.usersService.findAll();
     return new Page(users, 100);
-  }
-
-  @Get(':id')
-  @HasRole(Role.ADMIN)
-  async findOne(@Param('id', IsId) id: number): Promise<User> {
-    return this.usersService.findOne(+id);
-  }
-
-  @Patch(':id')
-  @HasRole(Role.ADMIN)
-  async update(@Param('id', IsId) id: number, @Body() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(id, updateUserDto);
-  }
-
-  @Delete(':id')
-  @HasRole(Role.ADMIN)
-  remove(@Param('id', IsId) id: number) {
-    return this.usersService.remove(id);
   }
 }

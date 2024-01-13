@@ -5,8 +5,12 @@ import { User } from 'src/entities/user.entity';
 
 export class CreateUserDto extends PickType(
   User,
-  ["name", "username", "email", "password"]
+  ["name", "username", "email"]
 ){
+
+  @MinLength(8)
+  password: string
+  
   role?: Role
   situation?: Situation
 }
