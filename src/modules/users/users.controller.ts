@@ -1,11 +1,11 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query, UseGuards, Put } from '@nestjs/common';
 import { Role } from '@prisma/client';
-import { HasRole } from 'src/common/decorators/has-role.decorator';
-import { PageQuery } from 'src/common/http/page-query.type';
-import { Page } from 'src/common/http/page.type';
-import { IsId } from 'src/common/pipes/isId.pipe';
-import { PageQueryPipe } from 'src/common/pipes/page-query-pipe.pipe';
-import { User } from 'src/entities/user.entity';
+import { HasRole } from '@src/common/decorators/has-role.decorator';
+import { PageQuery } from '@src/common/http/page-query.type';
+import { Page } from '@src/common/http/page.type';
+import { IsId } from '@src/common/pipes/isId.pipe';
+import { PageQueryPipe } from '@src/common/pipes/page-query-pipe.pipe';
+import { User } from '@src/entities/user.entity';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { CreateUserDto } from './dto/create-user.dto';
