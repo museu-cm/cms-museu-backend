@@ -8,7 +8,7 @@ export class CreateUserDto extends PickType(
   ["name", "username", "email"]
 ){
 
-  @MinLength(8)
+  @MinLength(8, { message: 'senha precisa ter pelo menos 8 caracteres' })
   password: string
   
   role?: Role
