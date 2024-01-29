@@ -1,6 +1,7 @@
 setup:
 	npm install -g yarn
 	yarn install
+	yarn prisma generate
 	make build-database
 	make build-backend
 
