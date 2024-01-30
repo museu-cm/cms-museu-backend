@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "cms-museu-cm",
-    "dateExported": "2024-01-29T21:23:58.851Z",
+    "dateExported": "2024-01-30T00:33:04.873Z",
     "version": "1.1",
     "folders": [
         {
@@ -29,28 +29,18 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-01-13T18:42:36.876Z",
-            "modified": "2024-01-13T18:44:11.300Z",
+            "modified": "2024-01-30T00:12:37.335Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"email\": \"andrew100@gmail.com\",\n  \"password\": \"andrew100password\"\n}",
+                "raw": "{\n  \"email\": \"admin@admin.com\",\n  \"password\": \"adminpassword\"\n}",
                 "form": []
             },
-            "tests": []
-        },
-        {
-            "_id": "7aa328f4-3ad9-4c5d-9c0c-a0bc9fedf0b0",
-            "colId": "ed35392b-a47b-466f-910f-bacfbbad5578",
-            "containerId": "d99e5996-1b29-49f3-b013-82044263529c",
-            "name": "get-one",
-            "url": "localhost:8080/users/2",
-            "method": "GET",
-            "sortNum": 10000,
-            "created": "2024-01-13T18:42:36.880Z",
-            "modified": "2024-01-13T18:43:18.126Z",
-            "headers": [],
-            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkIjoxLCJpYXQiOjE3MDY1NjQwODcsImV4cCI6MTcwNjczNjg4N30.8W8HBUEuup_tJcOA3uebPKTdwMVwcZgs58YdrcjbcA4"
+            },
             "tests": []
         },
         {
@@ -62,13 +52,9 @@
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-01-13T18:42:36.877Z",
-            "modified": "2024-01-13T18:42:36.877Z",
+            "modified": "2024-01-29T23:59:32.830Z",
             "headers": [],
             "params": [],
-            "auth": {
-                "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkIjozLCJpYXQiOjE3MDUxNTk0NzgsImV4cCI6MTcwNTMzMjI3OH0.Uc257mCI8cE7QZf0GMYVPnhfyQH6CCUtScf1IJ6BcXM"
-            },
             "tests": []
         },
         {
@@ -80,17 +66,17 @@
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-01-13T18:42:36.878Z",
-            "modified": "2024-01-13T18:42:36.878Z",
+            "modified": "2024-01-29T21:51:04.592Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\": \"Andrew Sena\",\n  \"username\": \"andrew\",\n  \"email\": \"andrew@gmail.com\",\n  \"password\": \"andrewpass\"\n}",
+                "raw": "{\n  \"name\": \"Andrew\",\n  \"username\": \"andrew\",\n  \"email\": \"andrew@gmail.com\",\n  \"password\": \"andrewpass\"\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkIjoxLCJpYXQiOjE3MDUxNzA2MTksImV4cCI6MTcwNTM0MzQxOX0.SNu8V4tSILLTkL27y3q0mb3BbfLRefvhuARFvxMmUGA"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkIjoxLCJpYXQiOjE3MDY1NjQwODcsImV4cCI6MTcwNjczNjg4N30.8W8HBUEuup_tJcOA3uebPKTdwMVwcZgs58YdrcjbcA4"
             },
             "tests": []
         },
@@ -103,7 +89,7 @@
             "method": "PATCH",
             "sortNum": 40000,
             "created": "2024-01-13T18:42:36.879Z",
-            "modified": "2024-01-13T18:43:44.843Z",
+            "modified": "2024-01-29T23:59:56.626Z",
             "headers": [],
             "params": [],
             "body": {
@@ -113,7 +99,43 @@
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkIjoxLCJpYXQiOjE3MDUxNzEzNjUsImV4cCI6MTcwNTM0NDE2NX0.OoAgvjlyyAWaijcsLmcdmhxIAa_PqVY5Jw7xYo5e7Fw"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkIjoxLCJpYXQiOjE3MDY1NzI3NjUsImV4cCI6MTcwNjc0NTU2NX0.mV2VeL419u4kJHRQQkLYMhFrjA-Y3SGCa06x2Ncca5g"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7aa328f4-3ad9-4c5d-9c0c-a0bc9fedf0b0",
+            "colId": "ed35392b-a47b-466f-910f-bacfbbad5578",
+            "containerId": "d99e5996-1b29-49f3-b013-82044263529c",
+            "name": "get-one",
+            "url": "localhost:8080/users/2",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-01-13T18:42:36.880Z",
+            "modified": "2024-01-29T23:59:03.151Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkIjoxLCJpYXQiOjE3MDY1NzE5NzgsImV4cCI6MTcwNjc0NDc3OH0.Djd3_7h41bOnahJJDrc0rHncYD-UjTREzBkVf2diZ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "252ef0ae-3204-4ae2-b3a3-edcc3718ae1e",
+            "colId": "ed35392b-a47b-466f-910f-bacfbbad5578",
+            "containerId": "d99e5996-1b29-49f3-b013-82044263529c",
+            "name": "delete",
+            "url": "localhost:8080/users/3",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2024-01-30T00:00:52.146Z",
+            "modified": "2024-01-30T00:29:30.279Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkIjoxLCJpYXQiOjE3MDY1NzMyMTgsImV4cCI6MTcwNjc0NjAxOH0.vXAjOtv732xN2jkv8hVePnnXYAdyYrQnhC3GcdGHRqk"
             },
             "tests": []
         }
