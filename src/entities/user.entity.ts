@@ -6,20 +6,19 @@ import { IsEmail, MinLength } from "class-validator"
 export class User {
   id: number
   
-  @MinLength(4)
+  @MinLength(4, { message: 'Nome precisa ter pelo menos 4 caracteres' })
   name: string
 
-  @MinLength(4)
+  @MinLength(4, { message: 'Username precisa ter pelo menos 4 caracteres' })
   username: string
 
-  @IsEmail()
+  @IsEmail({}, { message: 'Email inválido' })
   email: string
 
   @Exclude()
-  @MinLength(8)
+  @MinLength(8, { message: 'Senha precisa ter pelo menos 8 caracteres' })
   password: string
 
-  // @Exclude()
   role: Role
 
   situation: Situation
