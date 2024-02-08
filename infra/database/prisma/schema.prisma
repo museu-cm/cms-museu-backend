@@ -31,7 +31,7 @@ model Image {
   hash        String    @unique
   fileName    String    @map("file_name")
   size        Int
-  createdAt   DateTime  @default(now())
+  createdAt   DateTime  @default(now()) @map("created_at")
 
    @@map("images")
 }
