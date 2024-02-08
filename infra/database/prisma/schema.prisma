@@ -26,6 +26,16 @@ model User {
   @@map("users")
 }
 
+model Image {
+  id          Int       @id @default(autoincrement())
+  hash        String    @unique
+  fileName    String    @map("file_name")
+  size        Int
+  createdAt   DateTime  @default(now())
+
+   @@map("images")
+}
+
 enum Role {
   ADMIN
   BASIC
@@ -39,3 +49,4 @@ enum Situation {
 
   @@map("situations")
 }
+
