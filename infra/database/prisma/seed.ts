@@ -20,10 +20,25 @@ const createDefaultUsers = async (salt: string) => {
   })
 }
 
+const createDefaultImages = async () => {
+  const images = [
+    {
+      hash: '00000000-0000-0000-0000-000000000000',
+      fileName: '00000000-0000-0000-0000-000000000000.jpg',
+      size: 185491
+    }
+  ]
+
+  await prisma.image.createMany({
+    data: images
+  })
+}
+
 async function seed() {
   if (process.env.SALT) {
     const salt = process.env.SALT;
     await createDefaultUsers(salt);
+    await createDefaultImages()
   } else {
     throw new Error("SALT env not found");
   }
