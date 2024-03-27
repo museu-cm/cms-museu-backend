@@ -1,35 +1,42 @@
 {
     "client": "Thunder Client",
     "collectionName": "cms-museu-cm",
-    "dateExported": "2024-01-30T00:33:04.873Z",
+    "dateExported": "2024-03-27T03:00:19.079Z",
     "version": "1.1",
     "folders": [
         {
-            "_id": "d99e5996-1b29-49f3-b013-82044263529c",
-            "name": "user",
+            "_id": "bb6104f6-f0e8-4892-97bb-be6e4ab25eb9",
+            "name": "users",
             "containerId": "",
-            "created": "2024-01-13T18:42:36.876Z",
+            "created": "2024-03-18T01:52:22.969Z",
             "sortNum": 10000
         },
         {
-            "_id": "6b677ad4-f05a-4b26-90a7-f0dfb2f2230d",
+            "_id": "cddde425-dc17-45fc-a9a4-62612e5bd871",
             "name": "auth",
             "containerId": "",
-            "created": "2024-01-13T18:42:36.877Z",
+            "created": "2024-03-18T01:52:22.970Z",
             "sortNum": 20000
+        },
+        {
+            "_id": "25dc35e3-a0fa-4f5a-89d2-2f3805fb42af",
+            "name": "images",
+            "containerId": "",
+            "created": "2024-03-18T01:52:22.971Z",
+            "sortNum": 30000
         }
     ],
     "requests": [
         {
-            "_id": "5bbbfe21-552e-4b46-a0fb-779b192c5bc8",
-            "colId": "ed35392b-a47b-466f-910f-bacfbbad5578",
-            "containerId": "6b677ad4-f05a-4b26-90a7-f0dfb2f2230d",
+            "_id": "d504c00b-07f1-4a7a-9061-f641174f233c",
+            "colId": "943ebed9-769a-4718-bac7-23495db08255",
+            "containerId": "cddde425-dc17-45fc-a9a4-62612e5bd871",
             "name": "login",
             "url": "localhost:8080/auth/login",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-01-13T18:42:36.876Z",
-            "modified": "2024-01-30T00:12:37.335Z",
+            "created": "2024-03-18T01:52:22.969Z",
+            "modified": "2024-03-18T01:52:22.969Z",
             "headers": [],
             "params": [],
             "body": {
@@ -44,29 +51,29 @@
             "tests": []
         },
         {
-            "_id": "bfcb836c-c125-4649-a556-1263021f1c5e",
-            "colId": "ed35392b-a47b-466f-910f-bacfbbad5578",
-            "containerId": "d99e5996-1b29-49f3-b013-82044263529c",
+            "_id": "3ef5f3dc-e5fb-4b0f-b3d9-49914b3f98a5",
+            "colId": "943ebed9-769a-4718-bac7-23495db08255",
+            "containerId": "bb6104f6-f0e8-4892-97bb-be6e4ab25eb9",
             "name": "list",
             "url": "localhost:8080/users",
             "method": "GET",
             "sortNum": 20000,
-            "created": "2024-01-13T18:42:36.877Z",
-            "modified": "2024-01-29T23:59:32.830Z",
+            "created": "2024-03-18T01:52:22.970Z",
+            "modified": "2024-03-18T01:52:22.970Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "229c97b5-faa4-4b99-b612-6fa9da3af91d",
-            "colId": "ed35392b-a47b-466f-910f-bacfbbad5578",
-            "containerId": "d99e5996-1b29-49f3-b013-82044263529c",
+            "_id": "cf23a85b-cec2-4b7f-9588-34b0850fa257",
+            "colId": "943ebed9-769a-4718-bac7-23495db08255",
+            "containerId": "bb6104f6-f0e8-4892-97bb-be6e4ab25eb9",
             "name": "create",
             "url": "localhost:8080/users",
             "method": "POST",
             "sortNum": 30000,
-            "created": "2024-01-13T18:42:36.878Z",
-            "modified": "2024-01-29T21:51:04.592Z",
+            "created": "2024-03-18T01:52:22.971Z",
+            "modified": "2024-03-18T01:52:22.971Z",
             "headers": [],
             "params": [],
             "body": {
@@ -81,15 +88,15 @@
             "tests": []
         },
         {
-            "_id": "b0a88674-f9a2-4358-a473-8ac82a18748b",
-            "colId": "ed35392b-a47b-466f-910f-bacfbbad5578",
-            "containerId": "d99e5996-1b29-49f3-b013-82044263529c",
+            "_id": "e0f27e39-fecd-46e7-911d-5417ffeaea16",
+            "colId": "943ebed9-769a-4718-bac7-23495db08255",
+            "containerId": "bb6104f6-f0e8-4892-97bb-be6e4ab25eb9",
             "name": "update",
             "url": "localhost:8080/users/2",
             "method": "PATCH",
             "sortNum": 40000,
-            "created": "2024-01-13T18:42:36.879Z",
-            "modified": "2024-01-29T23:59:56.626Z",
+            "created": "2024-03-18T01:52:22.973Z",
+            "modified": "2024-03-18T01:52:22.973Z",
             "headers": [],
             "params": [],
             "body": {
@@ -104,15 +111,15 @@
             "tests": []
         },
         {
-            "_id": "7aa328f4-3ad9-4c5d-9c0c-a0bc9fedf0b0",
-            "colId": "ed35392b-a47b-466f-910f-bacfbbad5578",
-            "containerId": "d99e5996-1b29-49f3-b013-82044263529c",
+            "_id": "50a3b39a-a647-40e9-8c96-13d7f820fe50",
+            "colId": "943ebed9-769a-4718-bac7-23495db08255",
+            "containerId": "bb6104f6-f0e8-4892-97bb-be6e4ab25eb9",
             "name": "get-one",
             "url": "localhost:8080/users/2",
             "method": "GET",
             "sortNum": 50000,
-            "created": "2024-01-13T18:42:36.880Z",
-            "modified": "2024-01-29T23:59:03.151Z",
+            "created": "2024-03-18T01:52:22.974Z",
+            "modified": "2024-03-18T01:52:22.974Z",
             "headers": [],
             "params": [],
             "auth": {
@@ -122,21 +129,88 @@
             "tests": []
         },
         {
-            "_id": "252ef0ae-3204-4ae2-b3a3-edcc3718ae1e",
-            "colId": "ed35392b-a47b-466f-910f-bacfbbad5578",
-            "containerId": "d99e5996-1b29-49f3-b013-82044263529c",
+            "_id": "43c17eae-4918-4c70-8110-b3298f40334c",
+            "colId": "943ebed9-769a-4718-bac7-23495db08255",
+            "containerId": "bb6104f6-f0e8-4892-97bb-be6e4ab25eb9",
             "name": "delete",
             "url": "localhost:8080/users/3",
             "method": "DELETE",
             "sortNum": 60000,
-            "created": "2024-01-30T00:00:52.146Z",
-            "modified": "2024-01-30T00:29:30.279Z",
+            "created": "2024-03-18T01:52:22.975Z",
+            "modified": "2024-03-18T01:52:22.975Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkIjoxLCJpYXQiOjE3MDY1NzMyMTgsImV4cCI6MTcwNjc0NjAxOH0.vXAjOtv732xN2jkv8hVePnnXYAdyYrQnhC3GcdGHRqk"
             },
+            "tests": []
+        },
+        {
+            "_id": "7a8b7d64-1255-424c-b426-e752bf77a474",
+            "colId": "943ebed9-769a-4718-bac7-23495db08255",
+            "containerId": "25dc35e3-a0fa-4f5a-89d2-2f3805fb42af",
+            "name": "create",
+            "url": "localhost:8080/images",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-03-18T01:52:22.976Z",
+            "modified": "2024-03-27T02:56:21.952Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [],
+                "files": [
+                    {
+                        "name": "file",
+                        "value": "/home/alessandro/repositories/utfpr/museu/cms-museu-backend/files/images/00000000-0000-0000-0000-000000000000.jpg"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "9fa265e8-acd2-4c22-80b1-727b7d60da02",
+            "colId": "943ebed9-769a-4718-bac7-23495db08255",
+            "containerId": "25dc35e3-a0fa-4f5a-89d2-2f3805fb42af",
+            "name": "list",
+            "url": "localhost:8080/images",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-03-27T01:40:34.306Z",
+            "modified": "2024-03-27T01:40:54.903Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "073a0f81-0d74-4b90-9ed4-3faf6518291a",
+            "colId": "943ebed9-769a-4718-bac7-23495db08255",
+            "containerId": "25dc35e3-a0fa-4f5a-89d2-2f3805fb42af",
+            "name": "get-one",
+            "url": "localhost:8080/images/00000000-0000-0000-0000-000000000000",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-03-27T01:46:27.375Z",
+            "modified": "2024-03-27T02:59:08.766Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "035800dd-8c54-4622-9c95-f8f8a6251c4d",
+            "colId": "943ebed9-769a-4718-bac7-23495db08255",
+            "containerId": "25dc35e3-a0fa-4f5a-89d2-2f3805fb42af",
+            "name": "delete",
+            "url": "localhost:8080/images/cacc31ef-4e37-45ff-97c2-dac31286df15",
+            "method": "DELETE",
+            "sortNum": 110000,
+            "created": "2024-03-27T02:23:38.625Z",
+            "modified": "2024-03-27T02:33:35.784Z",
+            "headers": [],
+            "params": [],
             "tests": []
         }
     ]
